@@ -1,12 +1,16 @@
 import "server-only";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
+import { isSupabaseConfigured } from "@/lib/supabase/config";
 import type { Profile } from "@/types/database";
 
 /**
- * Loads the current user's profile. Returns null when signed out.
+ * Loads the current user's profile. Returns null when signed out, or when
+ * Supabase isn't configured on this deployment yet.
  */
 export async function getCurrentProfile(): Promise<Profile | null> {
+  if (!isSupabaseConfigured()) return null;
+
   const supabase = await createClient();
   const {
     data: { user },

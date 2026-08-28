@@ -3,6 +3,7 @@
 import { z } from "zod";
 import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { isSupabaseConfigured } from "@/lib/supabase/config";
 
 const cartItemSchema = z.object({
   productId: z.string().uuid(),
@@ -31,6 +32,13 @@ export type CheckoutResult =
   | { ok: false; error: string };
 
 export async function placeOrder(input: CheckoutInput): Promise<CheckoutResult> {
+  if (!isSupabaseConfigured() || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
+    return {
+      ok: false,
+      error: "This store isn't connected to Supabase yet. Please try again later.",
+    };
+  }
+
   const parsed = checkoutSchema.safeParse(input);
   if (!parsed.success) {
     return { ok: false, error: parsed.error.issues[0]?.message ?? "Invalid order" };

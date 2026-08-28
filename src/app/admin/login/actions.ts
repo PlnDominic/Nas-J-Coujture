@@ -2,8 +2,13 @@
 
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
+import { isSupabaseConfigured } from "@/lib/supabase/config";
 
 export async function signIn(_prevState: string | null, formData: FormData): Promise<string | null> {
+  if (!isSupabaseConfigured()) {
+    return "This deployment isn't connected to Supabase yet. Set NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY.";
+  }
+
   const email = String(formData.get("email") || "");
   const password = String(formData.get("password") || "");
 

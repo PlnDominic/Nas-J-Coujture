@@ -1,7 +1,15 @@
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
+import { isSupabaseConfigured } from "@/lib/supabase/config";
 
 export async function updateSession(request: NextRequest) {
+  // Supabase isn't configured yet (e.g. env vars not set on this deployment).
+  // Let the request through as-is rather than crashing every route — pages
+  // that need Supabase will show their own "not configured" state instead.
+  if (!isSupabaseConfigured()) {
+    return NextResponse.next({ request });
+  }
+
   let supabaseResponse = NextResponse.next({ request });
 
   const supabase = createServerClient(
