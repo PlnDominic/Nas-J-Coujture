@@ -1,10 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getPublishedProducts } from "@/lib/products";
-import { heroImage, newSeasonImage } from "@/lib/placeholder-images";
+import { heroSlides, newSeasonImage } from "@/lib/placeholder-images";
 import ProductCard from "@/components/ProductCard";
 import CategoryStrip from "@/components/CategoryStrip";
 import TrustBadges from "@/components/TrustBadges";
+import HeroSlider from "@/components/HeroSlider";
 
 export default async function HomePage() {
   const products = await getPublishedProducts();
@@ -41,14 +42,7 @@ export default async function HomePage() {
           </span>
 
           <div className="relative z-10 aspect-[3/4] w-[62%] max-w-md overflow-hidden sm:w-[38%]">
-            <Image
-              src={heroImage}
-              alt="Nasji Culture new collection"
-              fill
-              priority
-              sizes="(min-width: 640px) 500px, 62vw"
-              className="object-cover"
-            />
+            <HeroSlider slides={heroSlides} />
           </div>
         </div>
 

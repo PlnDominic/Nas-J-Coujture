@@ -7,6 +7,20 @@
 // PNG with transparency: no flattened white backdrop behind the garment.
 export const heroImage = "/images/kaftan-hero.png";
 
+// Rotating set of product shots for the hero slider, all transparent PNGs.
+export const heroSlides = [
+  { src: heroImage, alt: "Handcrafted white embroidered kaftan" },
+  {
+    src: "/images/hero-slide-white-kaftan.png",
+    alt: "White kaftan with gold and navy embroidered collar and placket",
+  },
+  {
+    src: "/images/hero-slide-olive-kaftan.png",
+    alt: "Olive green kaftan with ribbed placket detail",
+  },
+  { src: "/images/hero-slide-black-vest.png", alt: "Black sleeveless overshirt vest" },
+];
+
 export const categoryTileImages = {
   dresses: "/images/kaftan-dresses.jpg",
   outerwear: "/images/kaftan-outerwear.jpg",
