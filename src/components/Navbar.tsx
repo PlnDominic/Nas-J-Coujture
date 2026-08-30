@@ -10,7 +10,7 @@ export default function Navbar() {
     <header className="sticky top-0 z-40 bg-background">
       <TopBar />
       <div className="border-b border-border">
-        <div className="mx-auto grid max-w-6xl grid-cols-2 items-center gap-4 px-4 py-5 sm:grid-cols-3 sm:px-6">
+        <div className="mx-auto grid max-w-6xl grid-cols-3 items-center gap-4 px-4 py-5 sm:px-6">
           <div className="flex items-center gap-7 text-[11px] font-semibold uppercase tracking-wider">
             <MobileNav />
             <nav className="hidden items-center gap-7 sm:flex">
@@ -24,7 +24,7 @@ export default function Navbar() {
 
           <Link
             href="/"
-            className="justify-self-start text-2xl font-extrabold uppercase tracking-tight text-foreground sm:justify-self-center"
+            className="justify-self-center text-lg font-extrabold uppercase tracking-tight whitespace-nowrap text-foreground sm:text-2xl"
           >
             Nasji Culture
           </Link>
