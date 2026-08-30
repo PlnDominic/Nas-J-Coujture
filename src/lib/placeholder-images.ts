@@ -2,9 +2,8 @@
  * Editorial stock photography for the homepage, used until real Nasji
  * Culture lookbook and product photos are uploaded via the admin panel.
  * Sourced from Unsplash (free to use) and curated to feature Ghanaian /
- * West African men's kaftan, agbada and dashiki styling; rendered in
- * grayscale on the page to match the site's black-and-white editorial
- * style.
+ * West African men's kaftan, agbada and dashiki styling, shown in full
+ * color.
  */
 function unsplash(id: string, width: number) {
   return `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${width}&q=80`;

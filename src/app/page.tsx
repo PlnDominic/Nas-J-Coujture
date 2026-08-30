@@ -37,7 +37,7 @@ export default async function HomePage() {
               fill
               priority
               sizes="(min-width: 640px) 500px, 62vw"
-              className="object-cover grayscale"
+              className="object-cover"
             />
           </div>
         </div>
@@ -96,7 +96,7 @@ export default async function HomePage() {
             alt="New season lookbook"
             fill
             sizes="(min-width: 640px) 50vw, 100vw"
-            className="object-cover grayscale"
+            className="object-cover"
           />
         </div>
       </section>

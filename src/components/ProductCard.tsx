@@ -21,7 +21,7 @@ export default function ProductCard({ product }: { product: ProductWithImages })
               alt={product.name}
               fill
               sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
-              className="object-cover grayscale transition duration-300 group-hover:scale-105"
+              className="object-cover transition duration-300 group-hover:scale-105"
             />
           ) : (
             <div className="flex h-full items-center justify-center text-sm text-muted-foreground">

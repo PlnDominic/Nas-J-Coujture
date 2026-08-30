@@ -35,7 +35,7 @@ export default function CategoryStrip() {
                 alt={tile.name}
                 fill
                 sizes="80px"
-                className="object-cover grayscale"
+                className="object-cover"
               />
             </div>
             <div>
