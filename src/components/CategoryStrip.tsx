@@ -20,6 +20,8 @@ const TILES = [
     name: "Accessories",
     blurb: "The finishing details, hand-selected.",
     image: categoryTileImages.accessories,
+    // Favor the top of the frame so the cap, sunglasses and watch show.
+    objectPosition: "center 15%",
   },
 ];
 
@@ -36,6 +38,7 @@ export default function CategoryStrip() {
                 fill
                 sizes="80px"
                 className="object-cover"
+                style={tile.objectPosition ? { objectPosition: tile.objectPosition } : undefined}
               />
             </div>
             <div>

@@ -97,6 +97,7 @@ export default async function HomePage() {
             fill
             sizes="(min-width: 640px) 50vw, 100vw"
             className="object-cover"
+            style={{ objectPosition: "center 20%" }}
           />
         </div>
       </section>
