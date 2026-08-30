@@ -2,19 +2,20 @@
  * Editorial stock photography for the homepage, used until real Nasji
  * Culture lookbook and product photos are uploaded via the admin panel.
  * Sourced from Unsplash (free to use) and curated to feature Ghanaian /
- * West African kaftan and print dress styling; rendered in grayscale on
- * the page to match the site's black-and-white editorial style.
+ * West African men's kaftan, agbada and dashiki styling; rendered in
+ * grayscale on the page to match the site's black-and-white editorial
+ * style.
  */
 function unsplash(id: string, width: number) {
   return `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${width}&q=80`;
 }
 
-export const heroImage = unsplash("1687052093309-7a14efa58ecb", 900);
+export const heroImage = unsplash("1648329008114-bce0ec0b5950", 900);
 
 export const categoryTileImages = {
-  dresses: unsplash("1681545290284-679e6291c440", 700),
-  outerwear: unsplash("1664151099399-d41ed991a10d", 700),
-  accessories: unsplash("1664151100152-333a5c85efbe", 700),
+  dresses: unsplash("1780601247169-687a1c24b84d", 700),
+  outerwear: unsplash("1780601247035-e34a7b06d35b", 700),
+  accessories: unsplash("1556136412-3813d7367e4b", 700),
 };
 
-export const newSeasonImage = unsplash("1650562325232-538b70cccb32", 900);
+export const newSeasonImage = unsplash("1687952622898-4e9514a710d5", 900);
