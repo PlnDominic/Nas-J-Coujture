@@ -132,7 +132,7 @@ export default function CheckoutPage() {
           <button
             type="submit"
             disabled={submitting}
-            className="w-full rounded-full bg-brand px-6 py-3 text-sm font-medium text-brand-foreground transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50"
+            className="w-full rounded-none bg-foreground px-6 py-3 text-xs font-semibold uppercase tracking-wider text-background transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50"
           >
             {submitting ? "Placing order…" : `Place order: ${formatMoney(total)}`}
           </button>

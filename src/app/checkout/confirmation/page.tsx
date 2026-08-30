@@ -24,7 +24,7 @@ export default async function OrderConfirmationPage({
       )}
       <Link
         href="/products"
-        className="mt-8 inline-flex items-center rounded-full bg-brand px-6 py-3 text-sm font-medium text-brand-foreground transition hover:opacity-90"
+        className="mt-8 inline-flex items-center rounded-none bg-foreground px-7 py-3 text-xs font-semibold uppercase tracking-wider text-background transition hover:opacity-90"
       >
         Continue shopping
       </Link>

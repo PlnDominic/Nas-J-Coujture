@@ -24,7 +24,7 @@ export default function CartPage() {
         </p>
         <Link
           href="/products"
-          className="mt-6 inline-flex items-center rounded-full bg-brand px-6 py-3 text-sm font-medium text-brand-foreground transition hover:opacity-90"
+          className="mt-6 inline-flex items-center rounded-none bg-foreground px-7 py-3 text-xs font-semibold uppercase tracking-wider text-background transition hover:opacity-90"
         >
           Shop All
         </Link>
@@ -105,7 +105,7 @@ export default function CartPage() {
 
       <Link
         href="/checkout"
-        className="mt-6 flex w-full items-center justify-center rounded-full bg-brand px-6 py-3 text-sm font-medium text-brand-foreground transition hover:opacity-90"
+        className="mt-6 flex w-full items-center justify-center rounded-none bg-foreground px-7 py-3 text-xs font-semibold uppercase tracking-wider text-background transition hover:opacity-90"
       >
         Checkout
       </Link>

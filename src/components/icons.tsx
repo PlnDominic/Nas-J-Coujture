@@ -82,3 +82,22 @@ export function LockIcon({ className }: IconProps) {
     </svg>
   );
 }
+
+export function MenuIcon({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <path d="M3 6h18" />
+      <path d="M3 12h18" />
+      <path d="M3 18h18" />
+    </svg>
+  );
+}
+
+export function CloseIcon({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <path d="M5 5 19 19" />
+      <path d="M19 5 5 19" />
+    </svg>
+  );
+}
