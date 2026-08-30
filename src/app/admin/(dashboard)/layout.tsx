@@ -1,6 +1,14 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { requireAdmin } from "@/lib/auth";
 import { signOut } from "@/app/admin/login/actions";
+
+// The admin dashboard is a private, authenticated area with nothing for
+// search engines to index.
+export const metadata: Metadata = {
+  title: { template: "%s | Admin", default: "Admin" },
+  robots: { index: false, follow: false },
+};
 
 export default async function AdminDashboardLayout({
   children,

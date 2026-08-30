@@ -14,6 +14,9 @@ export default async function HomePage() {
     <div>
       {/* Hero */}
       <section className="relative overflow-hidden bg-[#e7e3db]">
+        <h1 className="sr-only">
+          Nasji Culture: Handcrafted Kaftans &amp; Agbada, Made in Small Batches
+        </h1>
         <div className="mx-auto max-w-6xl px-4 pt-14 sm:px-6">
           <p className="text-xs font-semibold uppercase leading-relaxed tracking-widest text-foreground">
             Handcrafted style,

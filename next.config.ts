@@ -4,6 +4,9 @@ const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseHostname = supabaseUrl ? new URL(supabaseUrl).hostname : undefined;
 
 const nextConfig: NextConfig = {
+  // Keep the production build lean and avoid shipping readable source to
+  // end users.
+  productionBrowserSourceMaps: false,
   images: {
     remotePatterns: [
       ...(supabaseHostname

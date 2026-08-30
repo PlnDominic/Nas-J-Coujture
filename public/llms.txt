@@ -1,0 +1,15 @@
+# Nasji Culture
+
+> Nasji Culture is a fashion brand selling small-batch, handcrafted kaftans and agbada. Customers browse the collection and check out directly on the site; an admin team manages product listings, pricing, and order fulfillment.
+
+## Storefront
+
+- [Home](/): brand introduction, featured pieces, and current collection.
+- [Shop All](/products): the full product catalog, filterable by category.
+- [Product pages](/products/[slug]): individual product details, pricing, sizes, colors, and stock.
+
+## Notes for automated agents
+
+- Prices are in the currency shown on each product page and are authoritative there; do not assume USD.
+- Checkout (/cart, /checkout) is transactional and requires a real customer; do not attempt automated purchases.
+- The /admin area is a private, authenticated dashboard and is not part of the public storefront.

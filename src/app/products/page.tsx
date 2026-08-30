@@ -1,6 +1,33 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { getCategories, getPublishedProducts } from "@/lib/products";
 import ProductCard from "@/components/ProductCard";
+import Breadcrumbs from "@/components/Breadcrumbs";
+
+export async function generateMetadata({
+  searchParams,
+}: PageProps<"/products">): Promise<Metadata> {
+  const { category } = await searchParams;
+  const categorySlug = Array.isArray(category) ? category[0] : category;
+
+  if (!categorySlug) {
+    return {
+      title: "Shop All",
+      description: "Browse the full Nasji Culture collection of handcrafted kaftans and agbada.",
+      alternates: { canonical: "/products" },
+    };
+  }
+
+  const categories = await getCategories();
+  const matched = categories.find((c) => c.slug === categorySlug);
+  const name = matched?.name ?? categorySlug;
+
+  return {
+    title: name,
+    description: `Shop the ${name} collection from Nasji Culture: handcrafted, small-batch pieces.`,
+    alternates: { canonical: `/products?category=${categorySlug}` },
+  };
+}
 
 export default async function ProductsPage({
   searchParams,
@@ -13,9 +40,20 @@ export default async function ProductsPage({
     getCategories(),
   ]);
 
+  const activeCategory = categories.find((c) => c.slug === categorySlug);
+
   return (
     <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
-      <h1 className="font-serif text-3xl font-semibold">Shop All</h1>
+      <Breadcrumbs
+        items={[
+          { label: "Home", href: "/" },
+          { label: "Shop All", href: activeCategory ? "/products" : undefined },
+          ...(activeCategory ? [{ label: activeCategory.name }] : []),
+        ]}
+      />
+      <h1 className="mt-4 font-serif text-3xl font-semibold">
+        {activeCategory ? activeCategory.name : "Shop All"}
+      </h1>
 
       <div className="mt-6 flex flex-wrap gap-2">
         <Link

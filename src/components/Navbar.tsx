@@ -2,13 +2,7 @@ import Link from "next/link";
 import TopBar from "@/components/TopBar";
 import CartIndicator from "@/components/CartIndicator";
 import { SearchIcon, UserIcon, HeartIcon } from "@/components/icons";
-
-const NAV_LINKS = [
-  { label: "Shop All", href: "/products" },
-  { label: "Dresses", href: "/products?category=dresses" },
-  { label: "Outerwear", href: "/products?category=outerwear" },
-  { label: "Accessories", href: "/products?category=accessories" },
-];
+import { NAV_LINKS } from "@/lib/nav-links";
 
 export default function Navbar() {
   return (

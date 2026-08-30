@@ -1,8 +1,37 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getProductBySlug } from "@/lib/products";
+import { primaryImage } from "@/lib/product-image";
 import { formatMoney } from "@/lib/money";
+import { siteUrl } from "@/lib/site";
 import AddToCartForm from "@/components/AddToCartForm";
+import Breadcrumbs from "@/components/Breadcrumbs";
+
+export async function generateMetadata({
+  params,
+}: PageProps<"/products/[slug]">): Promise<Metadata> {
+  const { slug } = await params;
+  const product = await getProductBySlug(slug);
+  if (!product) return { title: "Product not found" };
+
+  const description =
+    product.description?.slice(0, 160) ??
+    `${product.name}, handcrafted by Nasji Culture.`;
+  const image = primaryImage(product);
+
+  return {
+    title: product.name,
+    description,
+    alternates: { canonical: `/products/${product.slug}` },
+    openGraph: {
+      title: product.name,
+      description,
+      url: `${siteUrl}/products/${product.slug}`,
+      images: image ? [{ url: image }] : undefined,
+    },
+  };
+}
 
 export default async function ProductDetailPage({
   params,
@@ -16,9 +45,47 @@ export default async function ProductDetailPage({
     product.compare_at_price_cents != null &&
     product.compare_at_price_cents > product.price_cents;
 
+  const productJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.name,
+    description: product.description ?? undefined,
+    image: images.map((img) => img.url),
+    category: product.categories?.name,
+    offers: {
+      "@type": "Offer",
+      url: `${siteUrl}/products/${product.slug}`,
+      priceCurrency: product.currency,
+      price: (product.price_cents / 100).toFixed(2),
+      availability:
+        product.stock > 0
+          ? "https://schema.org/InStock"
+          : "https://schema.org/OutOfStock",
+    },
+  };
+
   return (
     <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
-      <div className="grid gap-10 lg:grid-cols-2">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+      />
+      <Breadcrumbs
+        items={[
+          { label: "Home", href: "/" },
+          { label: "Shop All", href: "/products" },
+          ...(product.categories
+            ? [
+                {
+                  label: product.categories.name,
+                  href: `/products?category=${product.categories.slug}`,
+                },
+              ]
+            : []),
+          { label: product.name },
+        ]}
+      />
+      <div className="mt-6 grid gap-10 lg:grid-cols-2">
         <div className="space-y-4">
           <div className="relative aspect-[3/4] overflow-hidden rounded-lg bg-muted">
             {images[0] ? (
