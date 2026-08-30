@@ -1,6 +1,6 @@
 # Nasji Culture
 
-A storefront for Nasji Culture — a fashion brand selling small-batch, heritage-craft
+A storefront for Nasji Culture, a fashion brand selling small-batch, heritage-craft
 clothing. Built with Next.js (App Router), TypeScript, Tailwind CSS, and Supabase.
 
 ## Features
@@ -45,14 +45,14 @@ clothing. Built with Next.js (App Router), TypeScript, Tailwind CSS, and Supabas
 
 ## Project structure
 
-- `src/app` — routes (storefront pages, `/admin` dashboard, checkout).
-- `src/components` — shared UI; `src/components/admin` — admin-only UI.
-- `src/lib/supabase` — browser, server, and admin (service-role) Supabase clients.
-- `src/store/cart.ts` — client-side cart state (Zustand, persisted to localStorage).
-- `supabase/migrations` — SQL schema and RLS policies.
+- `src/app`: routes (storefront pages, `/admin` dashboard, checkout).
+- `src/components`: shared UI; `src/components/admin`: admin-only UI.
+- `src/lib/supabase`: browser, server, and admin (service-role) Supabase clients.
+- `src/store/cart.ts`: client-side cart state (Zustand, persisted to localStorage).
+- `supabase/migrations`: SQL schema and RLS policies.
 
 ## Scripts
 
-- `npm run dev` — start the dev server.
-- `npm run build` — production build.
-- `npm run lint` — lint the codebase.
+- `npm run dev`: start the dev server.
+- `npm run build`: production build.
+- `npm run lint`: lint the codebase.

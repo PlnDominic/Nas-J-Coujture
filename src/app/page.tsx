@@ -25,9 +25,16 @@ export default async function HomePage() {
         <div className="relative mx-auto flex max-w-6xl justify-center px-4 sm:px-6">
           <span
             aria-hidden
-            className="pointer-events-none absolute inset-x-0 top-1/2 -translate-y-1/2 select-none whitespace-nowrap text-center font-sans text-[34vw] font-extrabold uppercase leading-none tracking-tight text-foreground/90 sm:text-[24vw]"
+            className="pointer-events-none absolute inset-x-0 top-1/2 z-20 -translate-y-1/2 select-none whitespace-nowrap text-center font-sans text-[34vw] font-extrabold uppercase leading-none tracking-tight text-foreground/90 sm:text-[24vw]"
           >
-            Nasji
+            <span>N</span>
+            <span
+              className="text-transparent"
+              style={{ WebkitTextStroke: "0.35vw #000" }}
+            >
+              AS
+            </span>
+            <span>JI</span>
           </span>
 
           <div className="relative z-10 aspect-[3/4] w-[62%] max-w-md overflow-hidden sm:w-[38%]">
@@ -118,7 +125,7 @@ export default async function HomePage() {
 
         {featured.length === 0 ? (
           <p className="text-muted-foreground">
-            No products yet — check back soon, or sign in as an admin to add the first one.
+            No products yet. Check back soon, or sign in as an admin to add the first one.
           </p>
         ) : (
           <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-4">

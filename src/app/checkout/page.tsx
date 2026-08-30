@@ -134,10 +134,10 @@ export default function CheckoutPage() {
             disabled={submitting}
             className="w-full rounded-full bg-brand px-6 py-3 text-sm font-medium text-brand-foreground transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50"
           >
-            {submitting ? "Placing order…" : `Place order — ${formatMoney(total)}`}
+            {submitting ? "Placing order…" : `Place order: ${formatMoney(total)}`}
           </button>
           <p className="text-xs text-muted-foreground">
-            Payment is collected on delivery / by invoice — our team will reach out to confirm
+            Payment is collected on delivery / by invoice; our team will reach out to confirm
             your order.
           </p>
         </form>

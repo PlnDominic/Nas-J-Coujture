@@ -7,8 +7,8 @@ export default function Footer() {
           <p>&copy; {new Date().getFullYear()} Nasji Culture. All rights reserved.</p>
         </div>
         <p className="mt-4 max-w-2xl">
-          Contemporary fashion rooted in heritage craft. Every piece is made in small batches —
-          when it&apos;s gone, it&apos;s gone.
+          Contemporary fashion rooted in heritage craft. Every piece is made in small batches.
+          When it&apos;s gone, it&apos;s gone.
         </p>
       </div>
     </footer>

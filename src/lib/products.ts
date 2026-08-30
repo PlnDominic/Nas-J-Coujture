@@ -7,7 +7,7 @@ export { primaryImage } from "@/lib/product-image";
 const PRODUCT_SELECT = "*, product_images(*), categories(*)";
 
 export async function getPublishedProducts(categorySlug?: string) {
-  // Deployment isn't wired up to Supabase yet — show an empty catalog
+  // Deployment isn't wired up to Supabase yet; show an empty catalog
   // instead of crashing the storefront.
   if (!isSupabaseConfigured()) return [];
 

@@ -3,7 +3,7 @@ import { createClient as createSupabaseClient } from "@supabase/supabase-js";
 import type { Database } from "@/types/database";
 
 /**
- * Service-role Supabase client. Bypasses RLS — only import this from
+ * Service-role Supabase client. Bypasses RLS; only import this from
  * trusted server code (Server Actions/Route Handlers) that has already
  * verified the caller is an admin. Never expose SUPABASE_SERVICE_ROLE_KEY
  * to the client.
