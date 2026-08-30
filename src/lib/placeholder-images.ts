@@ -9,11 +9,20 @@ function unsplash(id: string, width: number) {
   return `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${width}&q=80`;
 }
 
+/**
+ * Same as `unsplash()`, but zooms into a focal point of the source photo
+ * (fx/fy are 0–1 fractions of the image). Used for the category tiles,
+ * whose source photos include a second model that the crop excludes.
+ */
+function unsplashFocal(id: string, width: number, height: number, fx: number, fy: number, zoom = 1.8) {
+  return `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&crop=focalpoint&fp-x=${fx}&fp-y=${fy}&fp-z=${zoom}&w=${width}&h=${height}&q=80`;
+}
+
 export const heroImage = unsplash("1648329008114-bce0ec0b5950", 900);
 
 export const categoryTileImages = {
-  dresses: unsplash("1780601247169-687a1c24b84d", 700),
-  outerwear: unsplash("1780601247035-e34a7b06d35b", 700),
+  dresses: unsplashFocal("1663044022557-7d5d4c1d5318", 400, 480, 0.22, 0.45),
+  outerwear: unsplashFocal("1663043994777-7ed4b4e6cba3", 400, 480, 0.75, 0.45),
   accessories: unsplash("1556136412-3813d7367e4b", 700),
 };
 
