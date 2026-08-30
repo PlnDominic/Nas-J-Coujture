@@ -4,7 +4,8 @@
  * the kaftan/agbada product shots supplied directly for the brand, served
  * from the public/images folder in full color.
  */
-export const heroImage = "/images/kaftan-hero.jpg";
+// PNG with transparency: no flattened white backdrop behind the garment.
+export const heroImage = "/images/kaftan-hero.png";
 
 export const categoryTileImages = {
   dresses: "/images/kaftan-dresses.jpg",
