@@ -15,6 +15,12 @@ const nextConfig: NextConfig = {
             },
           ]
         : []),
+      // Editorial placeholder imagery on the homepage, until real product
+      // and lookbook photos are uploaded via the admin panel.
+      {
+        protocol: "https" as const,
+        hostname: "images.unsplash.com",
+      },
     ],
   },
 };
